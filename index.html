@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 格式大全 · 演示与说明</title>
+    <style>
+        /* 页面基础样式，仅用于清晰展示，不影响HTML语义 */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f8fafc;
+            color: #0f172a;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.15);
+            padding: 2rem;
+        }
+        header {
+            margin-bottom: 2.5rem;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 1rem;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.25rem;
+        }
+        header p {
+            color: #475569;
+            font-size: 1.1rem;
+        }
+        section {
+            margin-bottom: 2.5rem;
+            background: #ffffff;
+            border-radius: 20px;
+            border: 1px solid #e9eef2;
+            overflow: hidden;
+        }
+        section h2 {
+            background: #f1f5f9;
+            padding: 0.8rem 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+            border-bottom: 1px solid #cbd5e1;
+            color: #1e293b;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        section h2::before {
+            content: '📄';
+            font-size: 1.6rem;
+        }
+        /* 不同类别小图标 */
+        section:nth-of-type(1) h2::before { content: '🔤'; }
+        section:nth-of-type(2) h2::before { content: '✒️'; }
+        section:nth-of-type(3) h2::before { content: '📋'; }
+        section:nth-of-type(4) h2::before { content: '🔗'; }
+        section:nth-of-type(5) h2::before { content: '📊'; }
+        section:nth-of-type(6) h2::before { content: '📝'; }
+        section:nth-of-type(7) h2::before { content: '📌'; }
+        section:nth-of-type(8) h2::before { content: '🧩'; }
+        section:nth-of-type(9) h2::before { content: '⚙️'; }
+
+        .demo-box {
+            padding: 1.5rem 1.5rem 1rem 1.5rem;
+            background-color: #ffffff;
+            border-bottom: 1px dashed #cbd5e1;
+        }
+        .code-box {
+            background-color: #0f172a;
+            color: #e2e8f0;
+            padding: 1.2rem 1.5rem;
+            overflow-x: auto;
+            font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+        .code-box pre {
+            margin: 0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            color: #a5f3fc;
+        }
+        .code-box code {
+            font-family: inherit;
+            background: transparent;
+            padding: 0;
+            color: inherit;
+        }
+        /* 让示例中的表格自带边框 */
+        .demo-box table, .demo-box th, .demo-box td {
+            border: 1px solid #94a3b8;
+            border-collapse: collapse;
+            padding: 6px 12px;
+        }
+        .demo-box th {
+            background: #e2e8f0;
+        }
+        /* 图片占位自适应 */
+        .demo-box img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        /* 定义列表样式 */
+        .demo-box dl {
+            background: #f8fafc;
+            padding: 0.8rem;
+            border-radius: 12px;
+        }
+        .demo-box dt {
+            font-weight: 600;
+        }
+        /* 引用样式 */
+        .demo-box blockquote {
+            background: #f1f5f9;
+            padding: 0.8rem 1.2rem;
+            border-left: 4px solid #2563eb;
+            margin: 1rem 0;
+        }
+        /* 简单美化表单元素 */
+        .demo-box input, .demo-box select, .demo-box textarea, .demo-box button {
+            margin: 4px 0;
+            padding: 6px 10px;
+            border: 1px solid #cbd5e1;
+            border-radius: 20px;
+            font-size: 0.95rem;
+        }
+        .demo-box button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            cursor: default;
+            font-weight: 500;
+        }
+        .demo-box fieldset {
+            padding: 1rem;
+            border-radius: 16px;
+            border-color: #cbd5e1;
+        }
+        /* 进度、度量标签样式 */
+        .demo-box progress, .demo-box meter {
+            width: 200px;
+            height: 20px;
+        }
+        footer {
+            margin-top: 2rem;
+            text-align: center;
+            color: #64748b;
+            font-size: 0.9rem;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>📐 HTML 各种格式完全演示</h1>
+        <p>每一个样式块下方都附有对应的HTML源码（已转义），既看效果，也学写法。</p>
+    </header>
+
+    <main>
+        <!-- 1. 标题元素 h1~h6 -->
+        <section>
+            <h2>标题层级 (h1-h6)</h2>
+            <div class="demo-box">
+                <h1>这是h1标题</h1>
+                <h2>这是h2标题</h2>
+                <h3>这是h3标题</h3>
+                <h4>这是h4标题</h4>
+                <h5>这是h5标题</h5>
+                <h6>这是h6标题</h6>
+            </div>
+            <div class="code-box">
+                <pre><code>&lt;h1&gt;这是h1标题&lt;/h1&gt;
+&lt;h2&gt;这是h2标题&lt;/h2&gt;
+&lt;h3&gt;这是h3标题&lt;/h3&gt;
+&lt;h4&gt;这是h4标题&lt;/h4&gt;
+&lt;h5&gt;这是h5标题&lt;/h5&gt;
+&lt;h6&gt;这是h6标题&lt;/h6&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- 2. 文本格式化 (内联) -->
+        <section>
+            <h2>文本格式化 & 短语标签</h2>
+            <div class="demo-box">
+                <p>普通段落，里面包含 <strong>strong 加粗</strong>，<b>b 加粗</b>，<em>em 强调斜体</em>，<i>i 斜体</i>，<mark>mark 标记</mark>，<small>small 变小</small>，<del>del 删除线</del>，<ins>ins 插入线</ins>，<sub>sub 下标</sub>，<sup>sup 上标</sup>，还有 <u>u 下划线</u>。</p>
+                <p>另外还有 <abbr title="HyperText Markup Language">abbr (HTML)</abbr> 鼠标悬停看全称。</p>
+            </div>
+            <div class="code-box">
+                <pre><code>&lt;p&gt;
+  普通段落，里面包含 &lt;strong&gt;strong 加粗&lt;/strong&gt;，
+  &lt;b&gt;b 加粗&lt;/b&gt;，&lt;em&gt;em 强调斜体&lt;/em&gt;，
+  &lt;i&gt;i 斜体&lt;/i&gt;，&lt;mark&gt;mark 标记&lt;/mark&gt;，
+  &lt;small&gt;small 变小&lt;/small&gt;，&lt;del&gt;del 删除线&lt;/del&gt;，
+  &lt;ins&gt;ins 插入线&lt;/ins&gt;，&lt;sub&gt;sub 下标&lt;/sub&gt;，
+  &lt;sup&gt;sup 上标&lt;/sup&gt;，还有 &lt;u&gt;u 下划线&lt;/u&gt;。
+&lt;/p&gt;
+&lt;p&gt;另外还有 &lt;abbr title="HyperText Markup Language"&gt;abbr (HTML)&lt;/abbr&gt; 鼠标悬停看全称。&lt;/p&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- 3. 列表 (有序、无序、定义) -->
+        <section>
+            <h2>列表格式</h2>
+            <div class="demo-box">
+                <h4>无序列表</h4>
+                <ul>
+                    <li>苹果</li>
+                    <li>香蕉</li>
+                    <li>橙子</li>
+                </ul>
+                <h4>有序列表</h4>
+                <ol>
+                    <li>第一步：打开冰箱</li>
+                    <li>第二步：放入大象</li>
+                    <li>第三步：关闭冰箱</li>
+                </ol>
+                <h4>定义列表</h4>
+                <dl>
+                    <dt>HTML</dt>
+                    <dd>超文本标记语言</dd>
+                    <dt>CSS</dt>
+                    <dd>层叠样式表</dd>
+                </dl>
+            </div>
+            <div class="code-box">
+                <pre><code>&lt;h4&gt;无序列表&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;苹果&lt;/li&gt;
+  &lt;li&gt;香蕉&lt;/li&gt;
+  &lt;li&gt;橙子&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;有序列表&lt;/h4&gt;
+&lt;ol&gt;
+  &lt;li&gt;第一步：打开冰箱&lt;/li&gt;
+  &lt;li&gt;第二步：放入大象&lt;/li&gt;
+  &lt;li&gt;第三步：关闭冰箱&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4&gt;定义列表&lt;/h4&gt;
+&lt;dl&gt;
+  &lt;dt&gt;HTML&lt;/dt&gt;
+  &lt;dd&gt;超文本标记语言&lt;/dd&gt;
+  &lt;dt&gt;CSS&lt;/dt&gt;
+  &lt;dd&gt;层叠样式表&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- 4. 链接与图像 -->
+        <section>
+            <h2>链接 & 图像</h2>
+            <div class="demo-box">
+                <p><a href="https://www.example.com" target="_blank">这是一个超链接 (新标签打开)</a></p>
+                <p>图像（内联SVG占位图，不依赖网络）：
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%233b82f6' /%3E%3Ccircle cx='50' cy='50' r='30' fill='%23fbbf24' /%3E%3Ctext x='28' y='68' font-size='24' fill='%230f172a' font-weight='bold'%3Eimg%3C/text%3E%3C/svg%3E"
+                         alt="蓝色背景上的img文字示例" width="80" height="80">
+                </p>
+            </div>
+            <div class="code-box">
+                <pre><code>&lt;p&gt;&lt;a href="https://www.example.com" target="_blank"&gt;这是一个超链接 (新标签打开)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;图像（内联SVG占位图）：
+    &lt;img src="data:image/svg+xml,%3Csvg ... %3E" alt="蓝色背景上的img文字示例" width="80" height="80"&gt;
+&lt;/p&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- 5. 表格 -->
+        <section>
+            <h2>表格 (table)</h2>
+            <div class="demo-box">
+                <table>
+                    <caption>学生成绩表</caption>
+                    <thead>
+                        <tr><th>姓名</th><th>语文</th><th>数学</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>张小凡</td><td>88</td><td>92</td></tr>
+                        <tr><td>陆雪琪</td><td>95</td><td>91</td></tr>
+                    </tbody>
+                    <tfoot>
+                        <tr><td colspan="3">总计：优秀</td></tr>
+                    </tfoot>
+                </table>
+            </div>
+            <div class="code-box">
+                <pre><code>&lt;table&gt;
+  &lt;caption&gt;学生成绩表&lt;/caption&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;&lt;th&gt;姓名&lt;/th&gt;&lt;th&gt;语文&lt;/th&gt;&lt;th&gt;数学&lt;/th&gt;&lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;&lt;td&gt;张小凡&lt;/td&gt;&lt;td&gt;88&lt;/td&gt;&lt;td&gt;92&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;陆雪琪&lt;/td&gt;&lt;td&gt;95&lt;/td&gt;&lt;td&gt;91&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tfoot&gt;
+    &lt;tr&gt;&lt;td colspan="3"&gt;总计：优秀&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tfoot&gt;
+&lt;/table&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- 6. 表单控件 (部分) -->
+        <section>
+            <h2>表单元素</h2>
+            <div class="demo-box">
+                <form action="#" method="get">
+                    <label>文本输入: <input type="text" placeholder="例如：张三"></label><br>
+                    <label>密码: <input type="password" placeholder="****"></label><br>
+                    <label>单选:<br> <input type="radio" name="gender" value="男"> 男
+                    <input type="radio" name="gender" value="女"> 女</label><br>
+                    <label>多选: <input type="checkbox" name="hobby" value="读书"> 读书
+                    <input type="checkbox" name="hobby" value="运动"> 运动</label><br>
+                    <label>下拉列表:
+                        <select name="city">
+                            <option value="北京">北京</option>
+                            <option value="上海">上海</option>
+                        </select>
+                    </label><br>
+                    <label>文本域: <textarea rows="2" cols="30">默认内容</textarea></label><br>
+                    <button type="submit">提交按钮</button> <button type="reset">重置</button>
+                </form>
+                <fieldset>
+                    <legend>fieldset 分组示例</legend>
+                    姓名 <input type="text"><br>
+                    年龄 <input type="number" min="0">
+                </fieldset>
+            </div>
+            <div class="code-box">
+                <pre><code>&lt;form action="#" method="get"&gt;
+  &lt;label&gt;文本输入: &lt;input type="text" placeholder="例如：张三"&gt;&lt;/label&gt;&lt;br&gt;
+  &lt;label&gt;密码: &lt;input type="password" placeholder="****"&gt;&lt;/label&gt;&lt;br&gt;
+  &lt;label&gt;单选:&lt;br&gt; &lt;input type="radio" name="gender" value="男"&gt; 男
+  &lt;input type="radio" name="gender" value="女"&gt; 女&lt;/label&gt;&lt;br&gt;
+  &lt;label&gt;多选: &lt;input type="checkbox" name="hobby" value="读书"&gt; 读书
+  &lt;input type="checkbox" name="hobby" value="运动"&gt; 运动&lt;/label&gt;&lt;br&gt;
+  &lt;label&gt;下拉列表:
+    &lt;select name="city"&gt;
+      &lt;option value="北京"&gt;北京&lt;/option&gt;
+      &lt;option value="上海"&gt;上海&lt;/option&gt;
+    &lt;/select&gt;
+  &lt;/label&gt;&lt;br&gt;
+  &lt;label&gt;文本域: &lt;textarea rows="2" cols="30"&gt;默认内容&lt;/textarea&gt;&lt;/label&gt;&lt;br&gt;
+  &lt;button type="submit"&gt;提交按钮&lt;/button&gt; &lt;button type="reset"&gt;重置&lt;/button&gt;
+&lt;/form&gt;
+&lt;fieldset&gt;
+  &lt;legend&gt;fieldset 分组示例&lt;/legend&gt;
+  姓名 &lt;input type="text"&gt;&lt;br&gt;
+  年龄 &lt;input type="number" min="0"&gt;
+&lt;/fieldset&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- 7. 引文与代码块 -->
+        <section>
+            <h2>引用、代码、预格式</h2>
+            <div class="demo-box">
+                <blockquote cite="https://www.example.com">
+                    “这是一个块引用 (blockquote)。通常用于长引用。”
+                </blockquote>
+                <p>短引用: <q>这是行内引用q标签</q>，后面跟<cite>《cite引用标题》</cite>。</p>
+                <p>代码示例: <code>console.log("hello world");</code> 行内代码。</p>
+                <p>多行代码 (pre + code):</p>
+                <pre><code>function greet() {
+    return "你好, HTML!";
+}</code></pre>
+                <p>键盘输入: <kbd>Ctrl</kbd> + <kbd>C</kbd> ，样本输出: <samp>Hello, World</samp>，变量 <var>userName</var>。</p>
+                <address>联系地址: 北京市·HTML学习区 100000</address>
+            </div>
+            <div class="code-box">
+                <pre><code>&lt;blockquote cite="https://www.example.com"&gt;
+  “这是一个块引用 (blockquote)。通常用于长引用。”
+&lt;/blockquote&gt;
+&lt;p&gt;短引用: &lt;q&gt;这是行内引用q标签&lt;/q&gt;，后面跟&lt;cite&gt;《cite引用标题》&lt;/cite&gt;。&lt;/p&gt;
+&lt;p&gt;代码示例: &lt;code&gt;console.log("hello world");&lt;/code&gt; 行内代码。&lt;/p&gt;
+&lt;p&gt;多行代码 (pre + code):&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;function greet() {
+    return "你好, HTML!";
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;键盘输入: &lt;kbd&gt;Ctrl&lt;/kbd&gt; + &lt;kbd&gt;C&lt;/kbd&gt; ，样本输出: &lt;samp&gt;Hello, World&lt;/samp&gt;，变量 &lt;var&gt;userName&lt;/var&gt;。&lt;/p&gt;
+&lt;address&gt;联系地址: 北京市·HTML学习区 100000&lt;/address&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- 8. 分组元素 (div/span) 与语义标签 -->
+        <section>
+            <h2>分组 & 语义标签</h2>
+            <div class="demo-box">
+                <div style="border: 1px solid #2563eb; padding: 10px; border-radius: 12px; background: #eff6ff;">
+                    <span style="background: #fde68a; padding: 4px 8px; border-radius: 30px;">我是span（内联）</span>
+                    我是div内的文字，div是块级元素。
+                </div>
+                <article style="margin-top: 12px; border: 1px solid #10b981; padding: 10px; border-radius: 12px;">
+                    <header><h4>article内header</h4></header>
+                    <p>article 表示独立文章内容。</p>
+                    <footer>article底部footer</footer>
+                </article>
+                <details style="margin-top: 12px;">
+                    <summary>点击展开details</summary>
+                    <p>这里是隐藏的详细信息，属于交互式格式。</p>
+                </details>
+                <p>进度: <progress value="0.7" max="1">70%</progress> 和 度量: <meter value="0.6" min="0" max="1" low="0.3" high="0.8">60%</meter></p>
+            </div>
+            <div class="code-box">
+                <pre><code>&lt;div style="border:1px solid #2563eb; padding:10px;"&gt;
+  &lt;span style="background:#fde68a;"&gt;我是span（内联）&lt;/span&gt;
+  我是div内的文字，div是块级元素。
+&lt;/div&gt;
+&lt;article style="border:1px solid #10b981; padding:10px;"&gt;
+  &lt;header&gt;&lt;h4&gt;article内header&lt;/h4&gt;&lt;/header&gt;
+  &lt;p&gt;article 表示独立文章内容。&lt;/p&gt;
+  &lt;footer&gt;article底部footer&lt;/footer&gt;
+&lt;/article&gt;
+&lt;details&gt;
+  &lt;summary&gt;点击展开details&lt;/summary&gt;
+  &lt;p&gt;这里是隐藏的详细信息。&lt;/p&gt;
+&lt;/details&gt;
+&lt;p&gt;进度: &lt;progress value="0.7" max="1"&gt;70%&lt;/progress&gt; 度量: &lt;meter value="0.6" min="0" max="1" low="0.3" high="0.8"&gt;60%&lt;/meter&gt;&lt;/p&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- 9. 其他内联语义及特殊元素 -->
+        <section>
+            <h2>特殊语义 & 字符实体</h2>
+            <div class="demo-box">
+                <p>缩写 <abbr title="World Wide Web">WWW</abbr>，双向文本 <bdo dir="rtl">从右向左显示</bdo></p>
+                <p>ruby 注音: <ruby>汉<rt>hàn</rt>字<rt>zì</rt></ruby></p>
+                <p>时间: <time datetime="2026-01-01">2026年元旦</time></p>
+                <p>字符实体演示: &lt; &gt; &amp; &nbsp; &copy; &reg; &hearts;</p>
+                <p>删除线+插入: 原价 <del>¥199</del> 现价 <ins>¥99</ins></p>
+            </div>
+            <div class="code-box">
+                <pre><code>&lt;p&gt;缩写 &lt;abbr title="World Wide Web"&gt;WWW&lt;/abbr&gt;，双向文本 &lt;bdo dir="rtl"&gt;从右向左显示&lt;/bdo&gt;&lt;/p&gt;
+&lt;p&gt;ruby 注音: &lt;ruby&gt;汉&lt;rt&gt;hàn&lt;/rt&gt;字&lt;rt&gt;zì&lt;/rt&gt;&lt;/ruby&gt;&lt;/p&gt;
+&lt;p&gt;时间: &lt;time datetime="2026-01-01"&gt;2026年元旦&lt;/time&gt;&lt;/p&gt;
+&lt;p&gt;字符实体演示: &amp;lt; &amp;gt; &amp;amp; &amp;nbsp; &amp;copy; &amp;reg; &amp;hearts;&lt;/p&gt;
+&lt;p&gt;删除线+插入: 原价 &lt;del&gt;¥199&lt;/del&gt; 现价 &lt;ins&gt;¥99&lt;/ins&gt;&lt;/p&gt;</code></pre>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        ⚡ 本页面使用纯HTML + 基础CSS构建，每个格式块下方展示了对应源码（已转义）。<br>
+        © 2026 HTML 教学示例 — 涵盖标题、文本、列表、表格、表单、语义标签等大部分常用格式。
+    </footer>
+</div>
+</body>
+</html>
